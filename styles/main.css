@@ -1,0 +1,84 @@
+/* General Style Applications  */
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: sans-serif, arial;
+}
+
+/* Oversizing catch-all */
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+/* Remove underline from links */
+
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.section-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-button-article {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.cat-image {
+  width: 100%;
+  padding: 1em 0 1em 0;
+}
+
+h4 {
+  font-size: 1em;
+  color: #000;
+}
+
+.clicks {
+  padding-left: 1em;
+}
