@@ -15,7 +15,7 @@ $(document).ready(() => {
 
    increaseClick() {
        this.clicks ++;
-       $(`.${this.id}`).text(this.clicks);
+       $(`span.${this.id}`).text(this.clicks);
      };
 
 
@@ -29,6 +29,7 @@ $(document).ready(() => {
      //Clear Cat Area
      $(".section-container").html("");
 
+     //Build New
      $(".section-container").append(
        `<article class="cat-button-article">
 
@@ -62,31 +63,36 @@ $(document).ready(() => {
 
 
 
- //Add cats to Cat List
+ //Add cats to list
+ //Add event listeners
  for (cat of cats) {
-   let catListName = $(".cat-list").append(
-     `<li class="cat-name">${cat.name}</li>`
-   );
+   $(".cat-list").append(
+        `<li class="cat-name ${cat.id}">${cat.name}</li>`
+      );
+
+   //Click to display Cat in Cat Area
+   let catListName = $(`li.${cat.id}`);
 
    catListName.on("click", (function(catCopy) {
      return function() {
        catCopy.buildCatDOM();
      };
    }) (cat) );
+
+
+   //Click Counters for each Cat
+    let catPic = $(`#${cat.id}`);
+
+   catPic.on("click", (function(catCopy) {
+     return function() {
+       catCopy.increaseClick();
+       alert("Success!");
+     };
+   }) (cat) );
  }
 
 
 
- //Click Functions
- //Sylvester
- $(".cat-button-article").on("click", "#sylvester", (e) => {
-   sylvester.increaseClick();
- });
-
- //Grumpy
- $(".cat-button-article").on("click", "#grumpy", (e) => {
-   grumpy.increaseClick();
- });
 
 
 
