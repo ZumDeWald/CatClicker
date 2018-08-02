@@ -39,7 +39,18 @@ $(document).ready(() => {
          <h4 class="name">${this.name}<span class="clicks ${this.id}">${this.clicks}</span></h4>
 
      </article>`
-   )};
+   )
+
+   //Click Counters for each Cat
+    let catPic = $(`#${this.id}`);
+
+     catPic.on("click", (function(catCopy) {
+       return function() {
+         catCopy.increaseClick();
+       };
+     }) (this) );
+
+  };
 
  }
 
@@ -80,15 +91,7 @@ $(document).ready(() => {
    }) (cat) );
 
 
-   //Click Counters for each Cat
-    let catPic = $(`#${cat.id}`);
 
-   catPic.on("click", (function(catCopy) {
-     return function() {
-       catCopy.increaseClick();
-       alert("Success!");
-     };
-   }) (cat) );
  }
 
 
