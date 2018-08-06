@@ -170,6 +170,18 @@ $(document).ready(() => {
     incrementClicks: () => {
       model.currentCat.clicks++;
       catDisplayView.render();
+    },
+
+    //update cat with admin info
+    updateCat: () => {
+      model.currentCat.name = $("#form-name").val();
+      model.currentCat.img = $("#form-URL").val();
+      model.currentCat.clicks = $("#form-clicks").val();
+
+      catDisplayView.showAdmin();
+      catDisplayView.resetAdmin();
+      catDisplayView.render();
+      catListView.render();
     }
   };
 
@@ -183,11 +195,31 @@ $(document).ready(() => {
       this.catNameElem = $("#cat-name");
       this.catImageElem = $("#cat-img");
       this.catClicksElem = $("#clicks");
+      this.adminButton = $("#admin");
+      this.submitButton = $("#submit");
+      this.clearButton = $("#clear");
+      this.formElem = $("#admin-form");
 
       //listen for and update clicks
       $(this.catImageElem).click(function(e) {
         controller.incrementClicks();
       });
+
+      //listen for admin button click and show options
+      $(this.adminButton).click(function(e) {
+        catDisplayView.showAdmin();
+      });
+
+      //listen for submit button click
+      $(this.submitButton).click(function(e) {
+        controller.updateCat();
+      });
+
+      //listen for clear button click
+      $(this.clearButton).click(function(e) {
+        catDisplayView.showAdmin();
+        catDisplayView.resetAdmin();
+      }),
 
       //render this view
       catDisplayView.render();
@@ -199,6 +231,16 @@ $(document).ready(() => {
       this.catNameElem.text(currentCat.name);
       this.catImageElem.attr("src", `${currentCat.img}`);
       this.catClicksElem.text(currentCat.clicks);
+    },
+
+    showAdmin: () => {
+      $(this.formElem).toggleClass("hide");
+    },
+
+    resetAdmin: () => {
+      $("#form-name").val("");
+      $("#form-URL").val("")
+      $("#form-clicks").val("")
     }
   }
 
