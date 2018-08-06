@@ -37,30 +37,35 @@ a:active {
   color: inherit;
 }
 
-.cat-nav {
+#cat-nav {
   position: absolute;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
   width: 200px;
   padding: 2em 2em 0 0;
 }
 
-.cat-list{
+#cat-list{
   list-style-type: none;
+  padding-top: 4em;
 }
 
 .cat-name {
   color: #000;
-  font-size: 1.8em;
+  font-size: 1.5em;
   line-height: 1.5em;
 }
 
-.main-container {
+#main-container {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }
 
-.header {
+#header {
   width: 100%;
   text-align: center;
 }
@@ -69,23 +74,14 @@ h1 {
   font-size: 3em;
 }
 
-.section-container {
+#cat-container {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }
 
-.cat-button-article {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-.cat-image {
+#cat-image {
   width: 100%;
   padding: 1em 0 1em 0;
 }
@@ -95,6 +91,7 @@ h4 {
   color: #000;
 }
 
-.clicks {
-  padding-left: 1em;
+#clicks {
+  padding-top: 1em;
+  font-size: 1.2em;
 }
